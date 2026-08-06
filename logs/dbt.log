@@ -1,0 +1,16 @@
+[0m11:07:47.057674 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11028fc20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1118974d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x111897140>]}
+
+
+============================== 11:07:47.060224 | c98e5982-8864-41d2-af7a-ec25c137562b ==============================
+[0m11:07:47.060224 [info ] [MainThread]: Running with dbt=1.12.0
+[0m11:07:47.060462 [debug] [MainThread]: running dbt with arguments {'profiles_dir': '/Users/priya/high_value_segmentation', 'log_format': 'default', 'empty': 'None', 'invocation_command': 'dbt show --select dim_customer_rfm --limit 5', 'use_experimental_parser': 'False', 'target_path': 'None', 'log_path': 'logs', 'debug': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'version_check': 'True', 'introspect': 'True', 'maximum_seed_size_mib': '1', 'indirect_selection': 'eager', 'write_json': 'True', 'hints_enabled': 'True', 'no_print': 'None', 'quiet': 'False', 'static_parser': 'True', 'log_cache_events': 'False', 'cache_selected_only': 'False', 'use_colors': 'True', 'fail_fast': 'False', 'send_anonymous_usage_stats': 'True', 'warn_error': 'None', 'partial_parse': 'True', 'printer_width': '80'}
+[0m11:07:47.060696 [error] [MainThread]: [[31mERROR[0m]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /Users/priya/high_value_segmentation/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m11:07:47.061881 [debug] [MainThread]: Resource report: {"command_name": "show", "command_success": false, "command_wall_clock_time": 0.040191334, "process_in_blocks": "0", "process_kernel_time": 0.105256, "process_mem_max_rss": "114786304", "process_out_blocks": "0", "process_user_time": 0.544266}
+[0m11:07:47.062058 [debug] [MainThread]: Command `dbt show` failed at 11:07:47.062024 after 0.04 seconds
+[0m11:07:47.062185 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x111897230>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x111897590>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1118974d0>]}
+[0m11:07:47.062304 [debug] [MainThread]: Flushing usage events
+[0m11:07:48.261624 [debug] [MainThread]: An error was encountered while trying to flush usage events

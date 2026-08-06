@@ -1,0 +1,70 @@
+version: 2
+
+models:
+  - name: dim_customer_rfm
+    description: One row per customer — RFM scores, segment, high-value flag, currency.
+    columns:
+      - name: customer_id
+        tests: [not_null, unique]
+      - name: r_score
+        tests:
+          - accepted_values: {values: [1, 2, 3, 4, 5]}
+      - name: f_score
+        tests:
+          - accepted_values: {values: [1, 2, 3, 4, 5]}
+      - name: m_score
+        tests:
+          - accepted_values: {values: [1, 2, 3, 4, 5]}
+      - name: rfm_segment
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['Champions', 'Loyal', 'At Risk', 'Hibernating', 'Regular']
+      - name: top_currency
+        tests: [not_null]
+      - name: monetary_gbp
+        tests:
+          - dbt_utils.accepted_range: {min_value: 0, inclusive: true}
+
+  - name: fct_volume_concentration
+    description: Single-row concentration summary (top 1/5/10% volume share).
+    columns:
+      - name: top_1pct_volume_share
+        tests:
+          - dbt_utils.accepted_range: {min_value: 0, max_value: 100, inclusive: true}
+      - name: top_5pct_volume_share
+        tests:
+          - dbt_utils.accepted_range: {min_value: 0, max_value: 100, inclusive: true}
+      - name: top_10pct_volume_share
+        tests:
+          - dbt_utils.accepted_range: {min_value: 0, max_value: 100, inclusive: true}
+
+  - name: fct_corridor_summary
+    description: Volume and senders per corridor (capability for corridor velocity / capital allocation).
+    columns:
+      - name: corridor
+        tests: [not_null, unique]
+      - name: n_transfers
+        tests:
+          - dbt_utils.accepted_range: {min_value: 1, inclusive: true}
+      - name: total_volume_gbp
+        tests:
+          - dbt_utils.accepted_range: {min_value: 0, inclusive: true}
+
+  - name: fct_seasonality_day_of_month
+    description: Transfers and volume by day-of-month (real transfer_date).
+    columns:
+      - name: day_of_month
+        tests:
+          - not_null
+          - dbt_utils.accepted_range: {min_value: 1, max_value: 31, inclusive: true}
+
+  - name: fct_seasonality_weekday
+    description: Transfers and volume by weekday (real transfer_date).
+    columns:
+      - name: iso_dow
+        tests:
+          - not_null
+          - dbt_utils.accepted_range: {min_value: 1, max_value: 7, inclusive: true}
+      - name: day_name
+        tests: [not_null]

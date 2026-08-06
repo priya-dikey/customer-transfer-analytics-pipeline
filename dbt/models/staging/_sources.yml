@@ -1,0 +1,29 @@
+version: 2
+
+sources:
+  - name: raw
+    description: >
+      Tables landed by augment_transfers.py (real Online Retail II behaviour +
+      synthetic corridor/FX/fee layer). In DuckDB these live in schema 'main'.
+    schema: main
+    tables:
+      - name: fct_transfers
+        description: One row per transfer (invoice). Real amounts, synthetic corridor/fee/fx.
+        columns:
+          - name: transfer_id
+            tests: [not_null]
+          - name: customer_id
+            tests: [not_null]
+          - name: send_amount_gbp
+            tests:
+              - not_null
+          - name: corridor
+            tests: [not_null]
+      - name: dim_corridor
+        columns:
+          - name: corridor
+            tests: [not_null, unique]
+      - name: dim_fx
+        columns:
+          - name: currency
+            tests: [not_null, unique]

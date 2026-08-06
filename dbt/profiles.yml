@@ -1,0 +1,22 @@
+# Two targets, one project. Switching backends = change --target, nothing else.
+# The models never change; only this file and where the data is loaded do.
+high_value_segmentation:
+  target: duckdb
+  outputs:
+
+    duckdb:
+      type: duckdb
+      # points at the file the augment script (or load_to_warehouse.py) writes
+      path: "{{ env_var('WAREHOUSE_PATH', '../output/transfers.duckdb') }}"
+      threads: 4
+
+    # ---- Uncomment and fill in when/if you move to Postgres ----
+    # postgres:
+    #   type: postgres
+    #   host: localhost
+    #   port: 5432
+    #   user: "{{ env_var('PGUSER', 'postgres') }}"
+    #   password: "{{ env_var('PGPASSWORD', 'postgres') }}"
+    #   dbname: transfers
+    #   schema: analytics
+    #   threads: 4
