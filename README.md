@@ -93,6 +93,6 @@ Connect Superset to output/transfers.duckdb to view or rebuild the charts.
 - ~34% of senders are single transaction, so low frequency RFM quintiles are
   approximate (NTILE splits ties across buckets).
 
-<img width="682" height="463" alt="Screenshot 2026-08-06 at 10 25 07 AM" src="https://github.com/user-attachments/assets/afec2b07-3d74-4070-ba3d-639d9b7d3cd1" />
 <img width="1390" height="816" alt="Screenshot 2026-08-06 at 10 24 52 AM (2)" src="https://github.com/user-attachments/assets/6a725aa9-4169-49f9-865d-a45aabc7f94c" />
 <img width="1393" height="448" alt="Screenshot 2026-08-06 at 10 25 01 AM" src="https://github.com/user-attachments/assets/6cc47539-5973-4f70-853b-8a1d577b08cc" />
+<img width="682" height="463" alt="Screenshot 2026-08-06 at 10 25 07 AM" src="https://github.com/user-attachments/assets/afec2b07-3d74-4070-ba3d-639d9b7d3cd1" />
