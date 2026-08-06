@@ -76,7 +76,7 @@ Corridor, currency, and time based marts are demonstrations, not insights on thi
 
 ## Run
 
-Data is pre generated; no Python step is required.
+Data is pre generated
 
 ```bash
 python3.12 -m venv .venv && source .venv/bin/activate
