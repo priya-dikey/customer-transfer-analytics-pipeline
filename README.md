@@ -1,4 +1,4 @@
-# High-Value Sender Segmentation
+# Customer Analytics & Value Segmentation
 
 Identifying the small cohort of senders that drives an outsized share of transfer
 volume, and profiling what distinguishes them — themed on a cross-border
