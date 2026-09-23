@@ -5,7 +5,7 @@ concentrated value is among the highest value senders. Built on a
 transfer themed dataset with dbt, DuckDB, and Superset.
 
 # Business Question  
-How concentrated is our transfer volume among our customer base, and what's our exposure if we lose our highest-value senders?
+How concentrated is the transfer volume among our customer base, and what's the exposure if highest-value senders are lost?
 
 **Headline:** the top 10% of senders account for 61.4% of total volume.
 
