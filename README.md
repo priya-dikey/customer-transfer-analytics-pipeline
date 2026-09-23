@@ -4,6 +4,8 @@ An end to end analytics pipeline that segments customers and measures how
 concentrated value is among the highest value senders. Built on a
 transfer themed dataset with dbt, DuckDB, and Superset.
 
+# Business Question : How concentrated is our transfer volume among our customer base, and what's our exposure if we lose our highest-value senders?
+
 **Headline:** the top 10% of senders account for 61.4% of total volume.
 
 ## Data
@@ -36,13 +38,17 @@ raw tables (DuckDB)
                 fct_seasonality_*         time patterns
 ```
 
-## Results
+## Results 
 
 - Value concentration: top 1% of senders drive ~32% of volume, top 10% drive 61.4%.
 - Segments: five RFM segments (Champions, Loyal, Regular, At Risk, Hibernating).
-  Groups are fairly balanced by headcount but Champions dominate by volume. The
-  count versus value gap is the concentration story.
+  Groups are fairly balanced by headcount but Champions dominate by volume.
 
+## Recommendations
+- Top 10% of senders drive 61.4% of volume. Build a dedicated retention program for that decile with relationship management, fee concessions because losing a handful of them hits volume     hard.
+- Customer 12346's GBP 77K single transaction should also go to AML/fraud review, not just get logged as a data-quality flag.
+- Target campaigns at "At Risk" and "Hibernating" segments, not "Champions." Add a specific trigger, e.g., flag anyone moving from Champion/Loyal into At Risk.
+ 
 ## Validation
 
 Validation runs as dbt tests:
@@ -59,8 +65,7 @@ Interactive Superset dashboard (screenshots in docs/):
 
 - Top 10% volume share: the 61.4% headline metric.
 - Customers by Volume and Customer segments: count versus value contrast across segments.
-- High Value Senders: top decile drill down (customer 12346 is a single transfer
-  GBP 77K outlier, flagged as a data quality check).
+- High Value Senders: top decile drill down 
 
 ## Extended marts (capability, not findings)
 
