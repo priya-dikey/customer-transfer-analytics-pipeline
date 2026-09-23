@@ -4,7 +4,8 @@ An end to end analytics pipeline that segments customers and measures how
 concentrated value is among the highest value senders. Built on a
 transfer themed dataset with dbt, DuckDB, and Superset.
 
-# Business Question : How concentrated is our transfer volume among our customer base, and what's our exposure if we lose our highest-value senders?
+# Business Question  
+How concentrated is our transfer volume among our customer base, and what's our exposure if we lose our highest-value senders?
 
 **Headline:** the top 10% of senders account for 61.4% of total volume.
 
